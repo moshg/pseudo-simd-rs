@@ -2,6 +2,12 @@
 name = "pseudo_simd"
 version = "0.1.0"
 authors = ["mosh <mosh21168@gmail.com>"]
+description = "An efficient software implementation of packed SIMD."
+repository = "https://github.com/moshg/pseudo-simd-rs"
+readme = "README.md"
+keywords = ["simd", "vector"]
+categories = ["algorithms", "no-std"]
+license = "MIT OR Apache-2.0"
 edition = "2018"
 
 [dependencies]
