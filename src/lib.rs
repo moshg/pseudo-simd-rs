@@ -1,7 +1,7 @@
 #![no_std]
 
 use core::fmt;
-use core::ops::{Add, AddAssign, Neg, Not, Sub, SubAssign};
+use core::ops::{Add, AddAssign, BitAnd, BitAndAssign, BitOr, BitOrAssign, BitXor, BitXorAssign, Neg, Not, Sub, SubAssign};
 
 #[allow(non_camel_case_types)]
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Default, Hash)]
@@ -34,6 +34,54 @@ impl u7x8 {
             ret |= value << (i * 8);
         }
         u7x8(ret)
+    }
+}
+
+impl BitAnd<Self> for u7x8 {
+    type Output = Self;
+
+    #[inline]
+    fn bitand(self, rhs: Self) -> Self {
+        u7x8(self.0 & rhs.0)
+    }
+}
+
+impl BitAndAssign<Self> for u7x8 {
+    #[inline]
+    fn bitand_assign(&mut self, rhs: Self) {
+        *self = *self & rhs
+    }
+}
+
+impl BitOr<Self> for u7x8 {
+    type Output = Self;
+
+    #[inline]
+    fn bitor(self, rhs: Self) -> Self {
+        u7x8(self.0 | rhs.0)
+    }
+}
+
+impl BitOrAssign<Self> for u7x8 {
+    #[inline]
+    fn bitor_assign(&mut self, rhs: Self) {
+        *self = *self | rhs
+    }
+}
+
+impl BitXor<Self> for u7x8 {
+    type Output = Self;
+
+    #[inline]
+    fn bitxor(self, rhs: Self) -> Self {
+        u7x8(self.0 ^ rhs.0)
+    }
+}
+
+impl BitXorAssign<Self> for u7x8 {
+    #[inline]
+    fn bitxor_assign(&mut self, rhs: u7x8) {
+        *self = *self ^ rhs
     }
 }
 
